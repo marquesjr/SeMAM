@@ -1,0 +1,41 @@
+package models.situations;
+
+rule "OngoingEmergencyCare"
+@role(situation)
+@type(OngoingEmergencyCare)
+	when
+        $patient: Patient(alive == true)
+		EmergencyCall(patient == $patient, $ambulance:ambulance, status == "C")
+    then
+		SituationHelper.situationDetected(drools);
+end
+
+rule "Tachycardia"
+@role(situation)
+@type(Tachycardia)
+when
+	OngoingEmergencyCare($patient: patient, active==true)
+	Patient(this == $patient, heartrate > 100)
+then
+	SituationHelper.situationDetected(drools);
+end
+
+rule "Bradycardia"
+@role(situation)
+@type(Bradycardia)
+when
+	OngoingEmergencyCare($patient: patient, active==true)
+	Patient(this==$patient, heartRate > 0 && < 60 )
+then
+	SituationHelper.situationDetected(drools);
+end
+
+rule "CardiacArrest"
+@role(situation)
+@type(CardiacArrest)
+when
+	OngoingEmergencyCare($patient: patient, active==true)
+	Patient(this == $patient, heartRate == 0)
+then
+	SituationHelper.situationDetected(drools);
+end

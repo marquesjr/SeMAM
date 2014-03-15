@@ -1,0 +1,16 @@
+package models;
+
+declare EmergencyCall
+	@role(event)
+end
+
+rule "New Emergency"
+    when
+        $p: Patient()
+        not (EmergencyCall(patient.id == $p.id))
+    then
+        EmergencyCall e = new EmergencyCall();
+        e.setPatient($p);
+        e.setStatus(EmergencyStatus.INCOMING);
+        insert(e);
+end

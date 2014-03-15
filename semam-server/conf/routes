@@ -1,0 +1,33 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /                        		controllers.Application.index()
+
+GET 	/assets/users					controllers.Application.listUsers()
+POST 	/assets/users					controllers.Application.newUser()
+
+GET 	/assets/calls				    controllers.Application.listCalls()
+POST    /assets/calls                   controllers.Application.assignCall()
+
+GET 	/assets/user/:id				controllers.Application.editUser(id: String)
+POST 	/assets/user/:id				controllers.Application.updateUser(id: String)
+DELETE 	/assets/user/:id				controllers.Application.deleteUser(id: String)
+
+GET     /context/map                    controllers.Application.getEntities()
+
+POST 	/context/patient/register		controllers.contexts.PatientCtrl.newPatient()
+POST 	/context/patient/heartbeat/:id	controllers.contexts.PatientCtrl.updateHeartbeat(id: String)
+POST	/context/patient/location/:id	controllers.contexts.PatientCtrl.updateLocation(id: String)
+
+GET 	/context/ambulance/register		    controllers.contexts.AmbulanceCtrl.newAmbulance()
+GET     /context/ambulance/:id/assignment   controllers.contexts.AmbulanceCtrl.getAssignment(id: String)
+POST	/context/ambulance/location/:id	    controllers.contexts.AmbulanceCtrl.updateLocation(id: String)
+POST    /context/ambulance/:id/move         controllers.contexts.AmbulanceCtrl.Move(id: String)
+POST    /context/ambulance/:id/arrived      controllers.contexts.AmbulanceCtrl.atPatientLocation(id: String)
+POST    /context/ambulance/:id/solved       controllers.contexts.AmbulanceCtrl.solved(id: String)
+
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               	controllers.Assets.at(path="/public", file)

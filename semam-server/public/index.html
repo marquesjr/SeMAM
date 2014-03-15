@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en" ng-app="semam">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My AngularJS App</title>
+    <link rel="stylesheet" href="css/bootstrap/bootstrap-responsive.min.css"/>
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/app.css"/>
+    <!-- <link rel="stylesheet" href="css/bootstrap/bootstrap.icon-large.min.css"/> -->
+    <!-- Latest compiled and minified CSS -->
+
+    <!-- Optional theme -->
+
+    <!-- Font Awesome ========================================================== -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css">
+    <!-- Social Icons ========================================================== -->
+    <link rel="stylesheet" href="https://raw.github.com/noizwaves/bootstrap-social-buttons/master/social-buttons.css">
+</head>
+<body>
+
+<!-- <div id="content"> -->
+<!--     <ng:view></ng:view> -->
+<!-- </div> -->
+<div id="navbar">
+    <ng-include src="'partials/navbar.html'"></ng-include>
+</div>
+<div id="content">
+    <ng-view></ng-view>
+</div>
+
+<!-- JQuery ================================================================ -->
+<script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+
+<!-- Bootstrap ============================================================= -->
+<script src="js/bootstrap/bootstrap.min.js"></script>
+
+<!-- <script src="//netdna.bootstrapcdn.com/bootstrap/2.3.2/js/bootstrap.min.js"></script> -->
+
+<!-- AngularJS ============================================================= -->
+<!-- In production use:
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+  -->
+<script data-require="angular.js@1.1.5" data-semver="1.1.5" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular.min.js"></script>
+<script data-require="angular.js@1.1.5" data-semver="1.1.5" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular-resource.min.js"></script>
+<script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.6.0.js"></script>
+<!--<<script type="text/javascript" src="lib/angular-ui-utils/modules/event/event.js "></script>
+<script type="text/javascript" src="lib/angular-ui-map/src/map.js"></script> -->
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=geometry&sensor=false&language=en"></script>
+<script src="http://www.geocodezip.com/scripts/v3_epoly.js"></script>
+<script src="lib/maps/angular-google-maps.js"></script>
+<!-- AngularJS App Code ==================================================== -->
+<script src="js/app.js"></script>
+<script src="js/services.js"></script>
+<script src="js/controllers.js"></script>
+<script src="js/filters.js"></script>
+<script src="js/directives.js"></script>
+
+
+</body>
+</html>

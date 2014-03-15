@@ -1,0 +1,41 @@
+package query;
+
+import models.*;
+
+query "MobileEntities"
+    entity: MobileEntity()
+end
+
+query "Users"
+    user: User()
+end
+
+query "Patients"
+    patient: Patient()
+end
+
+query "Patient" (String i)
+    patient: Patient(id == i, loc: location)
+end
+
+query "User" (String i)
+    user: User(id == i)
+end
+
+query "EmergenciesByStatus" (EmergencyStatus s)
+    call: EmergencyCall(status == s)
+end
+
+query "Ambulance" (String i)
+    ambulance: Ambulance(id == i)
+end
+
+query "EmergencyCall" (String ambulanceId, EmergencyStatus st)
+    ambulance: Ambulance(id == ambulanceId)
+    call: EmergencyCall(this.ambulance == ambulance, patient: patient, status == st)
+end
+
+
+query "EmergencyById" (String i)
+    call: EmergencyCall(id == i)
+end

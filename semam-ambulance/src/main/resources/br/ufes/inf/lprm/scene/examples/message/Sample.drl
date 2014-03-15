@@ -1,0 +1,10 @@
+package br.ufes.inf.lprm.scene.examples.message;
+ 
+import br.ufes.inf.lprm.scene.examples.message.*;
+
+rule "Hello World"
+    when
+        m: Message()
+    then
+        System.out.println(m.getMessage());
+end
